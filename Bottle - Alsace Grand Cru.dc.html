@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; padding: 0; background: transparent; }
+  a { color: #8a6b4f; }
+  a:hover { color: #5c4735; }
+</style>
+</helmet>
+
+<svg viewBox="0 0 300 1000" width="300" height="1000" style="display:block;background:transparent;overflow:visible;font-family:Caveat, cursive">
+  <defs>
+    <filter id="rough" x="-12%" y="-8%" width="124%" height="116%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.014 0.04" numOctaves="3" seed="9" result="n" />
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+    <filter id="rough2" x="-12%" y="-8%" width="124%" height="116%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.03 0.06" numOctaves="3" seed="3" result="n" />
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+    <filter id="rough3" x="-12%" y="-8%" width="124%" height="116%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.05 0.08" numOctaves="2" seed="21" result="n" />
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="3" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </defs>
+  <g filter="url(#rough)">
+    <path d="M 128,44 L 128,236 C 128,330 80,424 76,566 L 72,946 Q 72,966 92,966 L 208,966 Q 228,966 228,946 L 224,566 C 220,424 172,330 172,236 L 172,44 Z" fill="#CBC03D" />
+    <path d="M 216,580 L 218,930" fill="none" stroke="#A79A2A" stroke-width="12" stroke-linecap="round" opacity="0.55" />
+    <path d="M 124,40 L 176,40 L 178,172 C 160,182 140,182 122,172 Z" fill="#9C8C85" />
+    <path d="M 122,170 C 140,181 160,181 178,170 L 178,188 C 160,198 140,198 122,188 Z" fill="#7E6F69" />
+  </g>
+  <g filter="url(#rough2)" fill="none" stroke="#FFFFFF" stroke-linecap="round">
+    <path d="M 140,200 C 138,226 136,244 135,258" stroke-width="6" opacity="0.5" />
+    <path d="M 108,320 C 96,450 92,600 94,760" stroke-width="12" opacity="0.85" />
+    <path d="M 120,360 C 112,470 110,580 111,700" stroke-width="4" opacity="0.5" />
+    <path d="M 204,600 C 208,690 208,780 204,864" stroke-width="6" opacity="0.45" />
+    <path d="M 94,942 C 130,958 174,958 206,944" stroke-width="8" opacity="0.85" />
+  </g>
+  <g filter="url(#rough2)">
+    <path d="M 80,772 L 220,770 L 222,908 L 78,910 Z" fill="#F1E5C9" />
+    <path d="M 150,660 C 158,652 168,658 166,668 C 164,678 152,682 146,674 C 140,666 144,660 150,660 Z" fill="none" stroke="#B7A253" stroke-width="3" />
+  </g>
+  <sc-if value="{{ showLabelArt }}" hint-placeholder-val="{{ true }}">
+    <g filter="url(#rough3)" fill="none" stroke="#B08A4A" stroke-width="2.2" stroke-linecap="round" opacity="0.85">
+      <path d="M 86,896 C 104,884 118,890 130,880 C 142,870 156,878 168,870 C 180,862 196,872 212,864" />
+      <path d="M 86,780 C 118,772 182,772 214,780" />
+      <path d="M 130,868 L 130,896" />
+      <path d="M 168,860 L 168,896" />
+    </g>
+  </sc-if>
+  <g text-anchor="middle" fill="#3E3524" font-family="Caveat, cursive">
+    <text x="150" y="800" font-size="14" fill="#8A7443">Alsace Grand Cru · 2023</text>
+    <text x="150" y="830" font-size="19" letter-spacing="0.5">SCHLOSSBERG</text>
+    <text x="150" y="856" font-size="20" letter-spacing="1">RIESLING</text>
+    <text x="150" y="880" font-size="17">andré Blanck</text>
+  </g>
+</svg>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:300,&quot;height&quot;:1000},&quot;showLabelArt&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return { showLabelArt: this.props.showLabelArt ?? true };
+  }
+}
+</script>
+</body>
+</html>

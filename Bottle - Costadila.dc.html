@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; padding: 0; background: transparent; }
+  a { color: #8a6b4f; }
+  a:hover { color: #5c4735; }
+</style>
+</helmet>
+
+<svg viewBox="0 0 300 1000" width="300" height="1000" style="display:block;background:transparent;overflow:visible;font-family:Caveat, cursive">
+  <defs>
+    <filter id="rough" x="-12%" y="-8%" width="124%" height="116%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.014 0.04" numOctaves="3" seed="9" result="n" />
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+    <filter id="rough2" x="-12%" y="-8%" width="124%" height="116%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.03 0.06" numOctaves="3" seed="3" result="n" />
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+    <filter id="rough3" x="-12%" y="-8%" width="124%" height="116%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.05 0.08" numOctaves="2" seed="21" result="n" />
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="3" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+    <clipPath id="bodyclip">
+      <path d="M 128,60 L 128,300 C 128,362 74,402 70,502 L 70,940 Q 70,966 92,966 L 208,966 Q 230,966 230,940 L 230,502 C 226,402 172,362 172,300 L 172,60 Z" />
+    </clipPath>
+  </defs>
+  <g filter="url(#rough)">
+    <path d="M 128,60 L 128,300 C 128,362 74,402 70,502 L 70,940 Q 70,966 92,966 L 208,966 Q 230,966 230,940 L 230,502 C 226,402 172,362 172,300 L 172,60 Z" fill="#E59D6C" />
+    <g clip-path="url(#bodyclip)">
+      <path d="M 118,44 L 182,44 L 182,300 C 182,344 214,378 224,414 L 76,414 C 86,378 118,344 118,300 Z" fill="#E7E7DC" />
+    </g>
+    <path d="M 222,510 L 222,930" fill="none" stroke="#C9773F" stroke-width="11" stroke-linecap="round" opacity="0.5" />
+    <path d="M 124,52 L 176,52 L 176,74 L 124,74 Z" fill="#1E8C84" />
+    <path d="M 124,72 L 176,72 L 176,80 C 160,86 140,86 124,80 Z" fill="#166B65" />
+  </g>
+  <g filter="url(#rough2)" fill="none" stroke="#FFFFFF" stroke-linecap="round">
+    <path d="M 138,96 C 136,170 136,250 137,292" stroke-width="6" opacity="0.9" />
+    <path d="M 86,404 C 96,412 108,398 120,406 C 132,414 144,400 156,408 C 168,416 180,402 192,410 C 200,415 208,410 214,404" stroke-width="3" opacity="0.95" clip-path="url(#bodyclip)" />
+    <path d="M 98,430 C 90,540 90,680 94,800" stroke-width="12" opacity="0.85" />
+    <path d="M 112,460 C 106,560 106,660 109,740" stroke-width="4" opacity="0.5" />
+    <path d="M 206,560 C 210,660 210,760 206,860" stroke-width="6" opacity="0.45" />
+    <path d="M 94,938 C 130,954 172,954 206,940" stroke-width="8" opacity="0.85" />
+  </g>
+  <g filter="url(#rough2)">
+    <path d="M 90,754 L 212,752 L 214,884 L 88,886 Z" fill="#F6F3E7" />
+    <path d="M 88,890 L 160,890 L 160,914 L 88,914 Z" fill="#D98A54" />
+  </g>
+  <sc-if value="{{ showLabelArt }}" hint-placeholder-val="{{ true }}">
+    <g filter="url(#rough3)" fill="none" stroke="#C4703C" stroke-width="2.6" stroke-linecap="round">
+      <circle cx="151" cy="800" r="26" />
+      <circle cx="151" cy="800" r="18" />
+      <circle cx="151" cy="800" r="10" />
+      <path d="M 151,774 L 151,790" stroke="#F6F3E7" stroke-width="5" />
+      <path d="M 151,810 L 151,830" stroke="#F6F3E7" stroke-width="5" />
+    </g>
+  </sc-if>
+  <g text-anchor="middle" font-family="Caveat, cursive">
+    <text x="150" y="856" font-size="24" fill="#3E3630">Costadilà</text>
+    <text x="150" y="876" font-size="13" fill="#8A7A6C">L.1.25</text>
+    <text x="124" y="908" font-size="15" fill="#FBF7EE">330 slm</text>
+  </g>
+</svg>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:300,&quot;height&quot;:1000},&quot;showLabelArt&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return { showLabelArt: this.props.showLabelArt ?? true };
+  }
+}
+</script>
+</body>
+</html>

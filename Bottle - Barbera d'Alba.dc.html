@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; padding: 0; background: transparent; }
+  a { color: #8a6b4f; }
+  a:hover { color: #5c4735; }
+</style>
+</helmet>
+
+<svg viewBox="0 0 300 1000" width="300" height="1000" style="display:block;background:transparent;overflow:visible;font-family:Caveat, cursive">
+  <defs>
+    <filter id="rough" x="-12%" y="-8%" width="124%" height="116%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.014 0.04" numOctaves="3" seed="9" result="n" />
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+    <filter id="rough2" x="-12%" y="-8%" width="124%" height="116%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.03 0.06" numOctaves="3" seed="3" result="n" />
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+    <filter id="rough3" x="-12%" y="-8%" width="124%" height="116%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.05 0.08" numOctaves="2" seed="21" result="n" />
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="3" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </defs>
+  <g filter="url(#rough)">
+    <path d="M 118,56 L 118,296 C 118,336 78,378 72,442 L 72,952 Q 72,970 92,970 L 208,970 Q 228,970 228,952 L 228,442 C 222,378 182,336 182,296 L 182,56 Z" fill="#2A1A16" />
+    <path d="M 98,450 C 92,560 92,660 96,740" fill="none" stroke="#5A2B22" stroke-width="18" stroke-linecap="round" opacity="0.5" />
+    <path d="M 114,52 L 186,52 L 188,190 C 160,200 140,200 112,190 Z" fill="#4C3A31" />
+    <path d="M 112,188 C 140,199 160,199 188,188 L 188,206 C 160,217 140,217 112,206 Z" fill="#332621" />
+  </g>
+  <g filter="url(#rough2)" fill="none" stroke="#FFFFFF" stroke-linecap="round">
+    <path d="M 134,222 C 131,254 131,278 132,292" stroke-width="6" opacity="0.45" />
+    <path d="M 92,370 C 84,470 84,570 88,662" stroke-width="11" opacity="0.8" />
+    <path d="M 104,400 C 98,480 98,560 101,632" stroke-width="4" opacity="0.45" />
+    <path d="M 206,470 C 210,550 210,630 206,676" stroke-width="6" opacity="0.4" />
+    <path d="M 94,944 C 130,960 174,960 206,946" stroke-width="8" opacity="0.8" />
+  </g>
+  <g filter="url(#rough2)">
+    <path d="M 76,688 L 224,686 L 226,902 L 74,904 Z" fill="#E7E2CA" />
+  </g>
+  <sc-if value="{{ showLabelArt }}" hint-placeholder-val="{{ true }}">
+    <g filter="url(#rough3)">
+      <g fill="none" stroke="#6B5E3A" stroke-width="2.2" stroke-linecap="round">
+        <path d="M 138,702 L 138,724 L 162,724 L 162,702 Z" />
+        <path d="M 140,700 C 146,692 154,692 160,700" />
+        <path d="M 122,716 C 116,724 116,736 122,742" />
+        <path d="M 178,716 C 184,724 184,736 178,742" />
+      </g>
+      <g fill="none" stroke="#7A5C8A" stroke-width="2.4" stroke-linecap="round">
+        <path d="M 118,864 C 122,844 126,830 132,822" />
+        <path d="M 150,866 C 150,842 152,826 156,818" />
+        <path d="M 182,864 C 178,844 174,830 168,822" />
+        <circle cx="131" cy="816" r="6" />
+        <circle cx="157" cy="812" r="6" />
+        <circle cx="167" cy="816" r="6" />
+      </g>
+      <g fill="none" stroke="#6E8A5A" stroke-width="2.2" stroke-linecap="round">
+        <path d="M 112,870 C 126,856 140,860 148,870" />
+        <path d="M 188,870 C 174,856 160,860 152,870" />
+      </g>
+    </g>
+  </sc-if>
+  <g text-anchor="middle" fill="#3A3226" font-family="Caveat, cursive">
+    <text x="150" y="768" font-size="27" letter-spacing="1">G.D. VAJRA</text>
+    <text x="150" y="798" font-size="23">Barbera d'Alba</text>
+    <text x="150" y="820" font-size="14" fill="#7A7159">Superiore · D.O.C.</text>
+    <text x="150" y="890" font-size="13" fill="#7A7159">Viola delle Viole</text>
+  </g>
+</svg>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:300,&quot;height&quot;:1000},&quot;showLabelArt&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return { showLabelArt: this.props.showLabelArt ?? true };
+  }
+}
+</script>
+</body>
+</html>

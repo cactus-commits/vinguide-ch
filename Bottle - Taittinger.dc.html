@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; padding: 0; background: transparent; }
+  a { color: #8a6b4f; }
+  a:hover { color: #5c4735; }
+</style>
+</helmet>
+
+<svg viewBox="0 0 300 1000" width="300" height="1000" style="display:block;background:transparent;overflow:visible;font-family:Caveat, cursive">
+  <defs>
+    <filter id="rough" x="-12%" y="-8%" width="124%" height="116%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.014 0.04" numOctaves="3" seed="9" result="n" />
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+    <filter id="rough2" x="-12%" y="-8%" width="124%" height="116%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.03 0.06" numOctaves="3" seed="3" result="n" />
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+    <filter id="rough3" x="-12%" y="-8%" width="124%" height="116%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.05 0.08" numOctaves="2" seed="21" result="n" />
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="3" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </defs>
+  <g filter="url(#rough)">
+    <path d="M 118,50 L 118,268 C 118,330 58,366 54,482 L 54,944 Q 54,968 78,968 L 222,968 Q 246,968 246,944 L 246,482 C 242,366 182,330 182,268 L 182,50 Z" fill="#8FA53A" />
+    <path d="M 238,490 L 238,930" fill="none" stroke="#5E7024" stroke-width="12" stroke-linecap="round" opacity="0.6" />
+    <path d="M 112,44 L 188,44 L 191,286 C 191,344 174,382 150,382 C 126,382 109,344 109,286 Z" fill="#1B1B19" />
+    <path d="M 112,96 C 138,104 162,104 188,96" fill="none" stroke="#4A4A44" stroke-width="4" />
+    <path d="M 112,120 C 138,128 162,128 188,120" fill="none" stroke="#4A4A44" stroke-width="3" opacity="0.7" />
+  </g>
+  <g filter="url(#rough2)">
+    <ellipse cx="150" cy="300" rx="26" ry="20" fill="#A62B22" stroke="#C79A46" stroke-width="3" />
+    <path d="M 143,292 L 150,286 L 157,292 L 154,310 L 146,310 Z" fill="#E4C077" />
+  </g>
+  <g filter="url(#rough2)" fill="none" stroke="#FFFFFF" stroke-linecap="round">
+    <path d="M 128,60 C 126,120 126,200 127,258" stroke-width="6" opacity="0.35" />
+    <path d="M 90,400 C 78,500 76,640 80,760" stroke-width="14" opacity="0.9" />
+    <path d="M 104,430 C 96,530 96,640 100,720" stroke-width="5" opacity="0.55" />
+    <path d="M 214,540 C 218,640 218,760 214,860" stroke-width="7" opacity="0.45" />
+    <path d="M 82,940 C 124,956 176,956 216,942" stroke-width="9" opacity="0.9" />
+  </g>
+  <g filter="url(#rough2)">
+    <path d="M 66,750 L 234,748 L 236,900 L 64,902 Z" fill="#FBF9F2" />
+  </g>
+  <sc-if value="{{ showLabelArt }}" hint-placeholder-val="{{ true }}">
+    <g filter="url(#rough3)">
+      <ellipse cx="150" cy="778" rx="17" ry="14" fill="#B23A2A" stroke="#C79A46" stroke-width="2.4" />
+      <path d="M 145,772 L 150,767 L 155,772 L 152,786 L 148,786 Z" fill="#EBD292" />
+    </g>
+  </sc-if>
+  <g text-anchor="middle" fill="#2F2C26" font-family="Caveat, cursive">
+    <text x="150" y="826" font-size="30" letter-spacing="1">TAITTINGER</text>
+    <text x="150" y="854" font-size="17" fill="#9A7E3C">Champagne</text>
+    <text x="150" y="882" font-size="14" fill="#6E675C">Brut Réserve · Reims</text>
+  </g>
+</svg>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:300,&quot;height&quot;:1000},&quot;showLabelArt&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return { showLabelArt: this.props.showLabelArt ?? true };
+  }
+}
+</script>
+</body>
+</html>

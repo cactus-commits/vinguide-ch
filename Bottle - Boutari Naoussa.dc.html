@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; padding: 0; background: transparent; }
+  a { color: #8a6b4f; }
+  a:hover { color: #5c4735; }
+</style>
+</helmet>
+
+<svg viewBox="0 0 300 1000" width="300" height="1000" style="display:block;background:transparent;overflow:visible;font-family:Caveat, cursive">
+  <defs>
+    <filter id="rough" x="-12%" y="-8%" width="124%" height="116%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.014 0.04" numOctaves="3" seed="9" result="n" />
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+    <filter id="rough2" x="-12%" y="-8%" width="124%" height="116%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.03 0.06" numOctaves="3" seed="3" result="n" />
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+    <filter id="rough3" x="-12%" y="-8%" width="124%" height="116%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.05 0.08" numOctaves="2" seed="21" result="n" />
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="3" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </defs>
+  <g filter="url(#rough)">
+    <path d="M 120,54 L 120,290 C 120,342 66,372 62,470 L 62,948 Q 62,968 82,968 L 218,968 Q 238,968 238,948 L 238,470 C 234,372 180,342 180,290 L 180,54 Z" fill="#2B1618" />
+    <path d="M 96,480 C 88,600 88,740 94,860" fill="none" stroke="#6E2226" stroke-width="22" stroke-linecap="round" opacity="0.55" />
+    <path d="M 116,50 L 184,50 L 186,192 C 160,204 140,204 114,192 Z" fill="#B3242B" />
+    <path d="M 114,190 C 140,203 160,203 186,190 L 186,208 C 160,220 140,220 114,208 Z" fill="#8C161C" />
+  </g>
+  <g filter="url(#rough2)" fill="none" stroke="#FFFFFF" stroke-linecap="round">
+    <path d="M 136,222 C 133,250 133,272 134,286" stroke-width="6" opacity="0.5" />
+    <path d="M 92,400 C 82,510 82,620 86,712" stroke-width="11" opacity="0.85" />
+    <path d="M 106,430 C 100,520 100,600 103,672" stroke-width="4" opacity="0.5" />
+    <path d="M 210,520 C 214,620 214,720 210,820" stroke-width="7" opacity="0.4" />
+    <path d="M 88,942 C 128,958 176,958 212,944" stroke-width="8" opacity="0.8" />
+  </g>
+  <g filter="url(#rough2)">
+    <path d="M 70,720 L 230,718 L 232,900 L 68,902 Z" fill="#E9E3D6" />
+  </g>
+  <sc-if value="{{ showLabelArt }}" hint-placeholder-val="{{ true }}">
+    <g filter="url(#rough3)" fill="none" stroke="#A8443C" stroke-width="2.2" stroke-linecap="round">
+      <path d="M 78,730 C 116,742 184,742 222,730" />
+      <path d="M 78,896 C 116,886 184,886 222,896" />
+      <path d="M 150,772 C 160,776 162,788 154,794 C 146,800 136,794 136,784 C 136,776 142,770 150,772" />
+      <circle cx="104" cy="784" r="9" />
+      <circle cx="196" cy="784" r="9" />
+    </g>
+  </sc-if>
+  <g text-anchor="middle" fill="#3A2A24" font-family="Caveat, cursive">
+    <text x="150" y="828" font-size="30" letter-spacing="1">BOUTARI</text>
+    <text x="150" y="858" font-size="24" letter-spacing="1">NAOUSSA</text>
+    <text x="150" y="878" font-size="13" fill="#7C6B5E">Red Wine · 750ml · 13%</text>
+  </g>
+</svg>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:300,&quot;height&quot;:1000},&quot;showLabelArt&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return { showLabelArt: this.props.showLabelArt ?? true };
+  }
+}
+</script>
+</body>
+</html>
