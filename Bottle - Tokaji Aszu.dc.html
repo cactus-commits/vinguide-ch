@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; padding: 0; background: transparent; }
+  a { color: #8a6b4f; }
+  a:hover { color: #5c4735; }
+</style>
+</helmet>
+
+<svg viewBox="0 0 300 1000" width="300" height="1000" style="display:block;background:transparent;overflow:visible;font-family:Caveat, cursive">
+  <defs>
+    <filter id="rough" x="-12%" y="-8%" width="124%" height="116%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.014 0.04" numOctaves="3" seed="9" result="n" />
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+    <filter id="rough2" x="-12%" y="-8%" width="124%" height="116%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.03 0.06" numOctaves="3" seed="3" result="n" />
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+    <filter id="rough3" x="-12%" y="-8%" width="124%" height="116%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.05 0.08" numOctaves="2" seed="21" result="n" />
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="3" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </defs>
+  <g transform="translate(18,116) scale(0.88)">
+  <g filter="url(#rough)">
+    <path d="M 122,50 L 122,268 C 122,330 66,372 62,478 L 62,946 Q 62,968 84,968 L 216,968 Q 238,968 238,946 L 238,478 C 234,372 178,330 178,268 L 178,50 Z" fill="#E0B24A" />
+    <path d="M 228,490 C 232,620 232,790 226,932" fill="none" stroke="#BE8C2C" stroke-width="12" stroke-linecap="round" opacity="0.55" />
+    <path d="M 118,46 L 182,46 L 184,214 C 160,226 140,226 116,214 Z" fill="#1F2A4A" />
+    <path d="M 116,212 C 140,225 160,225 184,212 L 184,232 C 160,244 140,244 116,232 Z" fill="#16203A" />
+  </g>
+  <g filter="url(#rough2)">
+    <path d="M 116,236 L 184,236 L 186,318 C 160,328 140,328 114,318 Z" fill="#EFE7CE" />
+    <path d="M 150,268 L 178,290 L 178,306 L 150,286 L 122,306 L 122,290 Z" fill="#4C7C4A" />
+    <path d="M 150,286 L 178,306 L 178,320 L 150,302 L 122,320 L 122,306 Z" fill="#C4342C" />
+  </g>
+  <g filter="url(#rough2)" fill="none" stroke="#FFFFFF" stroke-linecap="round">
+    <path d="M 134,66 C 132,120 132,180 133,206" stroke-width="6" opacity="0.3" />
+    <path d="M 96,392 C 86,500 84,630 88,760" stroke-width="13" opacity="0.9" />
+    <path d="M 110,424 C 104,520 103,630 106,720" stroke-width="5" opacity="0.55" />
+    <path d="M 206,530 C 210,640 210,760 206,864" stroke-width="7" opacity="0.5" />
+    <path d="M 90,940 C 128,956 176,956 210,942" stroke-width="9" opacity="0.9" />
+  </g>
+  <g filter="url(#rough2)">
+    <path d="M 70,676 L 230,674 L 232,908 L 68,910 Z" fill="#EFE5C6" />
+    <path d="M 84,690 L 216,688 L 218,894 L 82,896 Z" fill="none" stroke="#9A7A34" stroke-width="3" />
+  </g>
+  <sc-if value="{{ showLabelArt }}" hint-placeholder-val="{{ true }}">
+    <g filter="url(#rough3)">
+      <path d="M 84,716 L 116,714 L 118,886 L 82,888 Z" fill="#C9B36A" opacity="0.55" />
+      <path d="M 184,714 L 217,712 L 218,884 L 182,886 Z" fill="#C9B36A" opacity="0.55" />
+      <g fill="none" stroke="#7E6522" stroke-width="2" stroke-linecap="round">
+        <path d="M 87,780 L 92,756 L 97,780 L 102,752 L 106,780" />
+        <path d="M 87,800 L 106,798" />
+        <path d="M 89,846 C 94,832 100,838 103,826 C 106,836 108,846 106,860" />
+        <path d="M 196,758 C 202,746 210,750 212,762 C 213,774 205,784 197,780" />
+        <path d="M 196,824 C 202,814 210,820 212,832 C 213,844 203,854 195,848" />
+        <path d="M 196,798 L 213,796" />
+      </g>
+      <path d="M 132,724 L 168,722 L 170,734 L 130,736 Z" fill="#A3873A" opacity="0.7" />
+      <circle cx="150" cy="838" r="15" fill="none" stroke="#8C6F28" stroke-width="2.6" />
+    </g>
+  </sc-if>
+  <g text-anchor="middle" fill="#2E2A22" font-family="Caveat, cursive">
+    <text x="150" y="710" font-size="9" fill="#7E6522" letter-spacing="0">VINUM REGUM · REX VINORUM</text>
+    <text x="150" y="752" font-size="16" letter-spacing="0.5">ST. STEPHAN'S</text>
+    <text x="150" y="776" font-size="22" letter-spacing="1">CROWN</text>
+    <text x="150" y="800" font-size="27" fill="#3C4E86">TokaJi</text>
+    <text x="150" y="822" font-size="22" fill="#3C4E86">Aszú</text>
+    <text x="150" y="845" font-size="16" fill="#8C6F28">5</text>
+    <text x="150" y="872" font-size="14" letter-spacing="1" fill="#6E5C34">PUTTONYOS</text>
+    <text x="150" y="890" font-size="13" fill="#6E5C34">2020</text>
+  </g>
+  </g>
+</svg>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:300,&quot;height&quot;:1000},&quot;showLabelArt&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return { showLabelArt: this.props.showLabelArt ?? true };
+  }
+}
+</script>
+</body>
+</html>
