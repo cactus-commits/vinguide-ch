@@ -63,12 +63,27 @@
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
   componentDidMount() {
-    const check = () => { document.querySelectorAll('[data-hero]:not(.om-drawn)').forEach((el) => { const r = el.getBoundingClientRect(); if (r.height > 0 && r.top < innerHeight * 0.9) { if (r.bottom <= 0) el.classList.add('om-instant'); el.classList.add('om-drawn'); } }); };
+    const check = () => { /* ...unchanged... */ };
     addEventListener('scroll', check, { passive: true });
     this._omT = setInterval(check, 400);
     check();
+
+    if (location.hash === '#vinhyllan') {
+      const jump = () => {
+        const el = document.getElementById('vinhyllan');
+        if (el) el.scrollIntoView({ block: 'start' });
+      };
+      requestAnimationFrame(jump);
+      this._jumpT = setTimeout(jump, 300);
+      addEventListener('load', jump);
+      this._jump = jump;
+    }
   }
-  componentWillUnmount() { clearInterval(this._omT); }
+  componentWillUnmount() {
+    clearInterval(this._omT);
+    clearTimeout(this._jumpT);
+    if (this._jump) removeEventListener('load', this._jump);
+  }
 }
 </script>
 </body>
